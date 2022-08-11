@@ -13,7 +13,7 @@ class UserManager(BaseUserManager):
             raise ValueError(
                 'صاحب سایت باید به همه چیز دسترسی داشته باشد.')
 
-        return self.create_user(email, username, first_name, password, **other_fields)
+        return self.create_user(email, username, first_name, last_name ,password, **other_fields)
 
     def create_user(self, email, username, first_name, last_name, password, **other_fields):
 
@@ -44,7 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['username', 'firstname', 'last_name']
+    REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     def __str__(self):
         return self.user_name
