@@ -47,7 +47,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name']
 
     def __str__(self):
-        return self.user_name
+        return self.username
     
     class Meta:
         ordering = ['-id']
