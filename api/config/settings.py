@@ -123,6 +123,6 @@ AUTH_USER_MODEL = 'users.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES':[
-        'users.permissions.IsAuthenticatedOrReadOnly',
+        'users.permissions.IsAdminOrReadOnly',
     ]
 }

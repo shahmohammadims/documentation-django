@@ -1,18 +1,18 @@
-from rest_framework import viewsets
 from .models import Language, Documentation, Page
 from .serializers import Languageserializer, Documentationserializer, Pageserializer
+from rest_framework.generics import ListCreateAPIView
 
 
-class LanguageViewSet(viewsets.ModelViewSet):
+class LanguageView(ListCreateAPIView):
     queryset = Language.objects.all()
     serializer_class = Languageserializer
 
 
-class DocumentationViewSet(viewsets.ModelViewSet):
+class DocumentationView(ListCreateAPIView):
     queryset = Documentation.objects.all()
     serializer_class = Documentationserializer
 
 
-class PageViewSet(viewsets.ModelViewSet):
+class PageView(ListCreateAPIView):
     queryset = Page.objects.all()
     serializer_class = Pageserializer
