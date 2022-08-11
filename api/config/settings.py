@@ -21,8 +21,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
-    'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -108,8 +106,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
-STATICFILE_DIRES = [
-    os.path.join(BASE_DIR, 'templates'),
+STATICFILE_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
 ]
 # production
 # STATIC_ROOT = os.path.join(BASE_DIR, 'templates')
