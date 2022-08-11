@@ -1,0 +1,58 @@
+version: '3'
+
+services:
+    api:
+        build: ./api
+        container_name: api
+        restart: always
+        ports:
+            - "8000:8000"
+        networks:
+            - api_network
+            - nginx_network
+        depends_on:
+            - postgres
+        env_file:
+            - .env
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        volumes:
+            - ./api:/api
+    postgres:
+        image: postgres:alpine
+        container_name : postgres
+        restart : always
+        ports:
+            - "5432:5432"
+        networks:
+            - api_network
+        env_file:
+            - .env
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        volumes:
+            - ./data/:/var/lib/postgresql/data
+    nginx:
+        image: nginx:alpine
+        container_name: nginx
+        restart: always
+        ports:
+            - "80:80"
+        networks:
+            - nginx_network
+        depends_on:
+            - api
+        volumes:
+            - ./nginx:/etc/nginx/conf.d
+            - ./api/static/:/api/static/
+    
+networks:
+    api_network:
+        external: true
+    nginx_network:
+        external: true
+    
