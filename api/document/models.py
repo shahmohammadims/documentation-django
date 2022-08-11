@@ -12,7 +12,7 @@ class Language(models.Model):
         verbose_name_plural = 'زبان ها'
 
 
-class Documentation(models.Model):
+class Document(models.Model):
     language = models.ForeignKey(Language, models.SET_NULL, verbose_name='زبان', null=True)
     slug = models.CharField(verbose_name='نام' ,max_length=50, unique=True, primary_key=True)
     
@@ -25,7 +25,7 @@ class Documentation(models.Model):
 
 
 class Page(models.Model):
-    documentation = models.ForeignKey(Documentation, models.SET_NULL, verbose_name='داکیومنت', null=True)
+    document = models.ForeignKey(Document, models.SET_NULL, verbose_name='داکیومنت', null=True)
     title = models.CharField(verbose_name='عنوان' ,max_length=100,)
     slug = models.SlugField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
     body = models.TextField(verbose_name='متن')

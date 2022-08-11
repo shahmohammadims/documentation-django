@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Language, Documentation, Page
+from .models import Language, Document, Page
 
 
 class Languageserializer(serializers.ModelSerializer):
@@ -8,9 +8,9 @@ class Languageserializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class Documentationserializer(serializers.ModelSerializer):
+class Documentserializer(serializers.ModelSerializer):
     class Meta:
-        model = Documentation
+        model = Document
         fields = '__all__'
 
 
