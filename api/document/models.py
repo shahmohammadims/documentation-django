@@ -14,7 +14,8 @@ class Language(models.Model):
 
 class Document(models.Model):
     language = models.ForeignKey(Language, models.SET_NULL, verbose_name='زبان', null=True)
-    slug = models.CharField(verbose_name='نام' ,max_length=50, unique=True, primary_key=True)
+    name = models.CharField(verbose_name='نام' ,max_length=50)
+    slug = models.CharField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
     
     def __str__(self):
         return self.name
