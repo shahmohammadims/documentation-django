@@ -5,7 +5,7 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register('language', views.LanguageView)
-router.register('document', views.Document)
-router.register('page', views.Page)
+router.register('document', views.DocumentView)
+router.register('page', views.PageView)
 
 urlpatterns = router.urls
