@@ -5,8 +5,8 @@ services:
         build: ./api
         container_name: api
         restart: always
-        ports:
-            - "8000:8000"
+        expose:
+            - 8000
         networks:
             - api_network
             - nginx_network
@@ -24,8 +24,8 @@ services:
         image: postgres:alpine
         container_name : postgres
         restart : always
-        ports:
-            - "5432:5432"
+        expose:
+            - 5432
         networks:
             - api_network
         env_file:
