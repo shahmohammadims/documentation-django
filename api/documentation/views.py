@@ -9,10 +9,22 @@ class LanguageView(viewsets.ModelViewSet):
 
 
 class DocumentView(viewsets.ModelViewSet):
-    queryset = Document.objects.all()
     serializer_class = DocumentSerializer
+    
+    def get_queryset(self):
+        documents = Page.objects.all()
+        filter = self.request.GET.get('language')
+        if filter is not None:
+            return documents.filter(document=filter)
+        return documents
 
 
 class PageView(viewsets.ModelViewSet):
-    queryset = Page.objects.all()
     serializer_class = PageSerializer
+    
+    def get_queryset(self):
+        pages = Page.objects.all()
+        filter = self.request.GET.get('document')
+        if filter is not None:
+            return pages.filter(document=filter)
+        return pages
