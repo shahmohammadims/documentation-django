@@ -12,10 +12,10 @@ class DocumentView(viewsets.ModelViewSet):
     serializer_class = DocumentSerializer
     
     def get_queryset(self):
-        documents = Page.objects.all()
+        documents = Document.objects.all()
         filter = self.request.GET.get('language')
         if filter is not None:
-            return documents.filter(document=filter)
+            return documents.filter(language=filter)
         return documents
 
 
