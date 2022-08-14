@@ -1,9 +1,9 @@
 from django.db import models
 
 class Language(models.Model):
-    name = models.CharField(verbose_name='نام' ,max_length=50)
+    name = models.CharField(verbose_name='نام فارسی' ,max_length=50)
     about = models.CharField(verbose_name='درباره' ,max_length=500)
-    slug = models.SlugField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
+    slug = models.SlugField(verbose_name='نام انگلیسی' ,max_length=50, unique=True, primary_key=True)
     
     def __str__(self):
         return self.name
@@ -18,6 +18,13 @@ class Document(models.Model):
     name = models.CharField(verbose_name='نام' ,max_length=50)
     about = models.CharField(verbose_name='درباره' ,max_length=500)
     body = models.TextField(verbose_name='توضیحات مستند')
+    LIBRARY = 'li'
+    FRAMEWORK = 'fr'
+    TYPE = [
+        (LIBRARY, 'کتابخانه'),
+        (FRAMEWORK, 'فریمورک')
+    ]
+    type = models.CharField(verbose_name='نوع', max_length=10, choices=TYPE, default=LIBRARY)
     slug = models.CharField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
     
     def __str__(self):
