@@ -1,6 +1,7 @@
 from .models import Language, Document, Page
 from .serializers import LanguageSerializer, DocumentSerializer, PageSerializer
 from rest_framework import viewsets
+from rest_framework import filters
 
 
 class LanguageView(viewsets.ModelViewSet):
@@ -21,6 +22,8 @@ class DocumentView(viewsets.ModelViewSet):
 
 class PageView(viewsets.ModelViewSet):
     serializer_class = PageSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['title']
     
     def get_queryset(self):
         pages = Page.objects.all()
