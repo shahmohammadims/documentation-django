@@ -25,7 +25,7 @@ class Document(models.Model):
         (FRAMEWORK, 'فریمورک')
     ]
     type = models.CharField(verbose_name='نوع', max_length=10, choices=TYPE, default=LIBRARY)
-    slug = models.CharField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
+    slug = models.SlugField(verbose_name='لینک' ,max_length=50, unique=True, primary_key=True)
     
     def __str__(self):
         return self.name
