@@ -19,7 +19,7 @@ services:
             - POSTGRES_USER=${POSTGRES_USER}
             - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
         volumes:
-            - api:/api
+            - ./api:/api
     postgres:
         image: postgres:alpine
         container_name : postgres
@@ -47,18 +47,13 @@ services:
         depends_on:
             - api
         volumes:
-            - nginx:/etc/nginx/conf.d
-            - static:/api/static/
+            - ./nginx:/etc/nginx/conf.d
+            - ./api/static/:/api/static/
 
 volumes:
-    api:
-        external: true
-    static:
-        external: true
-    nginx:
-        external: true
     postgres:
         external: true
+        
 networks:
     api_network:
         external: true
