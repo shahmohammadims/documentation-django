@@ -1,4 +1,5 @@
 {
-    "platform": "django",
-    "app": "developers"
+    "platform": "docker",
+    "app": "developers",
+    "port": 8000
 }
