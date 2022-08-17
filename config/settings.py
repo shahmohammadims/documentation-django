@@ -135,7 +135,7 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000'
+    'https://developersup-frontend.iran.liara.run/'
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://developersup.ir']
