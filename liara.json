@@ -1,5 +1,11 @@
 {
     "platform": "docker",
     "app": "developers",
-    "port": 8000
+    "port": 8000,
+    "disks": [
+        {
+          "name": "static",
+          "mountTo": "/app/static"
+        }
+    ]
 }
