@@ -134,3 +134,5 @@ REST_FRAMEWORK = {
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
 ]
+
+CSRF_TRUSTED_ORIGINS = [config('ALLOWED_HOSTS')]
