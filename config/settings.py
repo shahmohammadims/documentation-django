@@ -135,4 +135,4 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000'
 ]
 
-CSRF_TRUSTED_ORIGINS = [config('ALLOWED_HOSTS')]
+CSRF_TRUSTED_ORIGINS = ['https://developers.iran.liara.run']
